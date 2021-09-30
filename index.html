@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="prism.css">
+    <script type="text/javascript" src="prism.js"></script>
+    <title>Sauvons le JS</title>
+</head>
+<body>
+    <header>
+        <h1>Le JS c'est trop dur</h1>
+        Donc on va faire quelques tutos
+    </header>
+
+    <section id="selectors">
+        <div class="explanations">
+            <h2>En guise de rappel...</h2>
+            <p>getElementByID : On a un objet élément qui correspond à l'ID que l'on spécifiera et on en fait ce que l'on veut.
+                <br/>getElementsByClassName : On trouve tous les éléments qui ont la classe spécifiée
+                <br/>querySelector : On retourne le premier élément du document qui a le sélecteur demandé
+                <br/>querySelectorAll : On retourne tous les éléments qui ont le sélecteur demandé
+            </p>
+            <h2>En plus</h2>
+            <p>Avec le <span>onclick</span>, on lance une fonction lorsque l'on clique sur l'élément correspondant</p>
+        </div>
+
+        <section id="demonstration">
+
+            <h2>Demonstration</h2>
+            <p>On a différents sélecteurs, lancer une fonction avec un clic sur l'élément, maintenant on peut s'amuser un peu avec. Regarde l'exemple :
+            </p>
+
+            <div class="example">
+                <p id="id-orange" onclick="anID()">Si tu cliques sur CET élément qui a un ID, la couleur changera.</p>
+
+                <p class="class-pink" onclick="someClasses()">Si tu cliques ici, cet élément là</p>
+            
+                <p class="class-pink">Et celui ci</p>
+            
+                <p class="class-blue">Pas celui là</p>
+            
+                <p class="class-pink">Mais peut être celui là, changeront de couleur.</p>
+            
+                <p class="class-blue" onclick="aQuerySelection()">Si tu cliques ici, le premier élément du document de cette classe changera de couleur.</p>
+            
+                <p class="class-blue" onclick="aQuerySelectionAll()">Par contre ici, ce sera tous les élements de cette classe qui changeront de couleur.</p>
+            </div>
+
+            <div class="code">
+                <pre>
+                        <code class="language-javascript">
+
+<body>
+<p id="id-orange" onclick="anID()">Si tu cliques sur CET élément qui a un ID, la couleur changera.</p>
+<p class="class-pink" onclick="someClasses()">Si tu cliques ici, cet élément là</p>
+<p class="class-pink">Et celui ci</p>
+<p class="class-blue">Pas celui là</p>
+<p class="class-pink">Mais peut être celui là, changeront de couleur.</p>
+<p class="class-blue" onclick="aQuerySelection()">Si tu cliques ici, le premier élément du document de cette classe changera de couleur.</p>
+<p class="class-blue" onclick="aQuerySelectionAll()">Par contre ici, ce sera tous les élements de cette classe qui changeront de couleur.</p>
+<script type="text/javascript">
+function anID() {
+    document.getElementById("id-orange").style.backgroundColor = "orange";
+}
+                            
+function someClasses() {
+    var x, i;
+    x = document.querySelectorAll(".class-pink");
+    for (i = 0; i < x.length; i++) {
+    x[i].style.backgroundColor = "pink";
+    }
+}
+
+function aQuerySelection() {
+    document.querySelector(".class-blue").style.backgroundColor = "lightblue";
+}
+
+function aQuerySelectionAll() {
+    var x, i;
+    x = document.querySelectorAll(".class-blue");
+    for (i = 0; i < x.length; i++) {
+    x[i].style.backgroundColor = "lightblue";
+    }
+}
+
+</script>
+                    </body>
+                    </html>
+
+                </code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section>
+
+    </section>
+    
+</body>
+</html>
