@@ -51,16 +51,20 @@
 
             <div class="code">
                 <pre>
-                        <code class="language-javascript">
+                    <code class="language-markup">
 
-<body>
-<p id="id-orange" onclick="anID()">Si tu cliques sur CET élément qui a un ID, la couleur changera.</p>
-<p class="class-pink" onclick="someClasses()">Si tu cliques ici, cet élément là</p>
-<p class="class-pink">Et celui ci</p>
-<p class="class-blue">Pas celui là</p>
-<p class="class-pink">Mais peut être celui là, changeront de couleur.</p>
-<p class="class-blue" onclick="aQuerySelection()">Si tu cliques ici, le premier élément du document de cette classe changera de couleur.</p>
-<p class="class-blue" onclick="aQuerySelectionAll()">Par contre ici, ce sera tous les élements de cette classe qui changeront de couleur.</p>
+                        &lt;body>
+                        &lt;p id="id-orange" onclick="anID()">Si tu cliques sur CET élément qui a un ID, la couleur changera.</p>
+                        &lt;p class="class-pink" onclick="someClasses()">Si tu cliques ici, cet élément là&lt;/p>
+                        &lt;p class="class-pink">Et celui ci&lt;/p>
+                        &lt;p class="class-blue">Pas celui là&lt;/p>
+                        &lt;p class="class-pink">Mais peut être celui là, changeront de couleur.&lt;/p>
+                        &lt;p class="class-blue" onclick="aQuerySelection()">Si tu cliques ici, le premier élément du document de cette classe changera de couleur.&lt;/p>
+                        &lt;p class="class-blue" onclick="aQuerySelectionAll()">Par contre ici, ce sera tous les élements de cette classe qui changeront de couleur.&lt;/p>
+
+                    </code>
+
+<code class="language-javascript">
 <script type="text/javascript">
 function anID() {
     document.getElementById("id-orange").style.backgroundColor = "orange";
@@ -85,19 +89,137 @@ function aQuerySelectionAll() {
     x[i].style.backgroundColor = "lightblue";
     }
 }
-
 </script>
-                    </body>
-                    </html>
-
                 </code></pre>
             </div>
         </div>
     </section>
 
-    <section>
+    <section id="classes">
+
+        <div class="explanations">
+            <h2>C'est bien de sélectionner des éléments mais on en fait quoi ?</h2>
+            <p>Dans dans l'exemple du dessus, on utilise javascript pour modifier le style des éléments que l'on a sélectionné(on a changé la couleur de fond).<br/>On utilise un <span>element.style</span> et on définit le changement que l'on souhaite avec la propriété CSS.<br/></p>
+
+            <p>Une autre manière de modifier le style, on peut ajouter aux éléments que l'on souhaite une classe. Pour l'exemple, on va réutiliser l'appel d'une fonction avec onclick pour voir la différence.</p>
+        </div>
+        <section class="demonstrations">
+            <div class="example">
+                <p id="without-class" onclick="addClass()">Pour l'instant, j'ai pas de class mais quand tu cliqueras sur moi j'en aurais une.</p>
+            </div>
+
+            <div class="code">
+                <pre>
+                        <code class="language-markup">
+                            &lt;p id="without-class" onclick="addClass()">Pour l'instant, j'ai pas de classe mais quand tu cliqueras sur moi j'en aurais une.&lt;/p>
+                        </code>
+                        <code class="language-javascript">
+                            <script type="text/javascript">
+                                function addClass() {
+                                    document.getElementById("without-class").className += "newClass";
+                                }
+                            </script>
+                    </code>
+                </pre>
+            </div>
+
+            <div class="explanations">
+                <p>Ainsi, de la même manière on peut supprimer une classe et la remplacer. On utilise le className ou le classList</p>
+                <h2>On fait le point :</h2>
+                <p>Ajouter une classe : .className += "laclasse" ou .classList.add('laclasse')
+                    <br/>Plusieurs classes : même méthode mais on met un espace entre chaque classe
+                    <br/>Modifier une classe : .className = "laclasse"
+                    <br/>Supprimer une classe : .classList.remove('laclasse')</p>
+
+                <p><span>On oublie pas de sélectionner l'élément que l'on souhaite modifier avant !</span></p>
+            </div>
+        </section>
+    </section>
+
+    <section id="events">
+
+        <div class="example">
+            <p id="mouse-event" onmouseover="mouse()">On a déjà utilisé beaucoup de fois le clic, donc cette fois-ci tu auras juste à passer ta souris sur ce texte.</p>
+        </div>
+
+        <div class="code">
+            <pre>
+
+                <code class="language-markup">
+                
+                    &lt;p id="mouse-event" onmouseover="mouse()">On a déjà utilisé beaucoup de fois le clic, donc cette fois-ci tu auras juste à passer ta souris sur ce texte.&lt;/p>
+                </code>
+
+                <code class="language-javascript">
+
+                    <script>
+                        function mouse(){
+                            document.getElementById("mouse-event").style.fontSize = "30px";
+                        }
+                
+                        document.getElementById("mouse-event").addEventListener("mouseover", mouseOver);
+                        document.getElementById("mouse-event").addEventListener("mouseout", mouseOut);
+                
+                        function mouseOver() {
+                            document.getElementById("mouse-event").style.color = "pink";
+                        }
+                
+                        function mouseOut() {
+                            document.getElementById("mouse-event").style.color = "black";
+                        }
+                    </script>
+
+                </code>
+            </pre>
+        </div>
+
+        <div class="explanations">
+            <h2>On continue encore la modification !</h2>
+            <p>Tu as compris la demonstration ?</p>
+            <p><br/>Pour voir les différentes modifications que l'on apporte avec javascript, on est passé par <span>onclick</span> qui nous permet d'appeler une fonction avec un clic sur un élément précis. <span>Mais qu'est ce que c'est réellement ?</span></p>
+            <p><br/>Dans cet exemple, on réalise deux choses de manière différente : en premier, on modifie la taille du texte en passant notre souris dessus. En second, on modifie la couleur du texte en fonction que la souris soit sur le texte ou non.</p>
+            <p><br/>Tout ce que nous faisons se produit grâce à la notion d'<span>événement</span> :</p>
+
+            <p>onclick : pour un clic sur l'élément
+                <br/> ondblclick : pour un double clic sur l'élément
+                <br/>onmouseover : pour le passage de la souris sur un élément
+                <br/>onmouseout : pour la sortie de la souris d'un élément
+                <br/>De nombreux autres événements existent...
+            </p>
+
+            <h2>Du coup, comment on s'occupe de ça ?</h2>
+            <p>L'utilisation du <span>.addEventListener</span> nous permet de gérer les différents événements que l'on souhaite et déclencher des fonctions précises. On a la possibilité d'agir plusieurs fois si les événements se répètent.</p>
+            <p><br/>Avec tous ces éléments, on a la possibilité de gérer une animation rapide : une transition CSS qui sera executée avec un changement de classe lors de l'appel de la fonction avec JS (ici avec un double clic): </p>
+        </div>
+
+        <div class="example">
+            <div class="box"></div>
+            <div>
+                <h2>Double clique pour que je puisse changer de forme !</h2>
+            </div>
+        </div>
+
+        <div class="code">
+            <pre>
+                <code class="language-javascript">
+                <script>
+                    document.querySelector(".box").addEventListener("dblclick", move);
+
+                    function move(){
+                        document.querySelector(".box").className="newbox";
+                    }
+                </script>
+            </code>
+            </pre>
+        </div>
 
     </section>
+
+
     
 </body>
+
+<footer>
+    Joanne MASSILLON | A2 DW
+</footer>
 </html>
