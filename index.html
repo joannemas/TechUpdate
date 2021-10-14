@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" type="text/css" href="prism.css">   
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="prism.css">
     <script type="text/javascript" src="prism.js"></script>
     <title>Sauvons le JS</title>
 </head>
@@ -50,19 +50,18 @@
             </div>
 
             <div class="code">
-                <pre>
-                    <code class="language-markup">
+                
+<pre><code class="language-markup">
+    &lt;body>
+    &lt;p id="id-orange" onclick="anID()">Si tu cliques sur CET élément qui a un ID, la couleur changera.</>
+    &lt;p class="class-pink" onclick="someClasses()">Si tu cliques ici, cet élément là&lt;/p>
+    &lt;p class="class-pink">Et celui ci&lt;/p>
+    &lt;p class="class-blue">Pas celui là&lt;/p>
+    &lt;p class="class-pink">Mais peut être celui là, changeront de couleur.&lt;/p>
+    &lt;p class="class-blue" onclick="aQuerySelection()">Si tu cliques ici, le premier élément du document de cette classe changera de couleur.&lt;/p>
+    &lt;p class="class-blue" onclick="aQuerySelectionAll()">Par contre ici, ce sera tous les élements de cette classe qui changeront de couleur.&lt;/p>
 
-                        &lt;body>
-                        &lt;p id="id-orange" onclick="anID()">Si tu cliques sur CET élément qui a un ID, la couleur changera.</p>
-                        &lt;p class="class-pink" onclick="someClasses()">Si tu cliques ici, cet élément là&lt;/p>
-                        &lt;p class="class-pink">Et celui ci&lt;/p>
-                        &lt;p class="class-blue">Pas celui là&lt;/p>
-                        &lt;p class="class-pink">Mais peut être celui là, changeront de couleur.&lt;/p>
-                        &lt;p class="class-blue" onclick="aQuerySelection()">Si tu cliques ici, le premier élément du document de cette classe changera de couleur.&lt;/p>
-                        &lt;p class="class-blue" onclick="aQuerySelectionAll()">Par contre ici, ce sera tous les élements de cette classe qui changeront de couleur.&lt;/p>
-
-                    </code>
+</code>
 
 <code class="language-javascript">
 <script type="text/javascript">
@@ -90,7 +89,7 @@ function aQuerySelectionAll() {
     }
 }
 </script>
-                </code></pre>
+</code></pre>
             </div>
         </div>
     </section>
@@ -103,24 +102,21 @@ function aQuerySelectionAll() {
 
             <p>Une autre manière de modifier le style, on peut ajouter aux éléments que l'on souhaite une classe. Pour l'exemple, on va réutiliser l'appel d'une fonction avec onclick pour voir la différence.</p>
         </div>
-        <section class="demonstrations">
             <div class="example">
-                <p id="without-class" onclick="addClass()">Pour l'instant, j'ai pas de class mais quand tu cliqueras sur moi j'en aurais une.</p>
+                <p id="without-class" onclick="addClass()">Pour l'instant, j'ai pas de classe mais quand tu cliqueras sur moi j'en aurais une.</p>
             </div>
 
             <div class="code">
-                <pre>
-                        <code class="language-markup">
-                            &lt;p id="without-class" onclick="addClass()">Pour l'instant, j'ai pas de classe mais quand tu cliqueras sur moi j'en aurais une.&lt;/p>
-                        </code>
-                        <code class="language-javascript">
-                            <script type="text/javascript">
-                                function addClass() {
-                                    document.getElementById("without-class").className += "newClass";
-                                }
-                            </script>
-                    </code>
-                </pre>
+<pre><code class="language-markup">
+    &lt;p id="without-class" onclick="addClass()">Pour l'instant, j'ai pas de classe mais quand tu cliqueras sur moi j'en aurais une.&lt;/p>
+</code>
+<code class="language-javascript">
+<script type="text/javascript">
+    function addClass() {
+        document.getElementById("without-class").className += "newClass";
+    }
+</script>
+</code></pre>
             </div>
 
             <div class="explanations">
@@ -133,7 +129,6 @@ function aQuerySelectionAll() {
 
                 <p><span>On oublie pas de sélectionner l'élément que l'on souhaite modifier avant !</span></p>
             </div>
-        </section>
     </section>
 
     <section id="events">
@@ -143,34 +138,28 @@ function aQuerySelectionAll() {
         </div>
 
         <div class="code">
-            <pre>
-
-                <code class="language-markup">
+<pre><code class="language-markup">
                 
-                    &lt;p id="mouse-event" onmouseover="mouse()">On a déjà utilisé beaucoup de fois le clic, donc cette fois-ci tu auras juste à passer ta souris sur ce texte.&lt;/p>
-                </code>
-
-                <code class="language-javascript">
-
-                    <script>
-                        function mouse(){
-                            document.getElementById("mouse-event").style.fontSize = "30px";
-                        }
+&lt;p id="mouse-event" onmouseover="mouse()">On a déjà utilisé beaucoup de fois le clic, donc cette fois-ci tu auras juste à passer ta souris sur ce texte.&lt;/p>
+</code>
+<code class="language-javascript">
+<script>
+    function mouse(){
+        document.getElementById("mouse-event").style.fontSize = "30px";
+    }
                 
-                        document.getElementById("mouse-event").addEventListener("mouseover", mouseOver);
-                        document.getElementById("mouse-event").addEventListener("mouseout", mouseOut);
+    document.getElementById("mouse-event").addEventListener("mouseover", mouseOver);
+    document.getElementById("mouse-event").addEventListener("mouseout", mouseOut);
                 
-                        function mouseOver() {
-                            document.getElementById("mouse-event").style.color = "pink";
-                        }
+    function mouseOver() {
+        document.getElementById("mouse-event").style.color = "pink";
+    }
                 
-                        function mouseOut() {
-                            document.getElementById("mouse-event").style.color = "black";
-                        }
-                    </script>
-
-                </code>
-            </pre>
+    function mouseOut() {
+        document.getElementById("mouse-event").style.color = "black";
+    }
+</script>
+</code></pre>
         </div>
 
         <div class="explanations">
@@ -180,16 +169,16 @@ function aQuerySelectionAll() {
             <p><br/>Dans cet exemple, on réalise deux choses de manière différente : en premier, on modifie la taille du texte en passant notre souris dessus. En second, on modifie la couleur du texte en fonction que la souris soit sur le texte ou non.</p>
             <p><br/>Tout ce que nous faisons se produit grâce à la notion d'<span>événement</span> :</p>
 
-            <p>onclick : pour un clic sur l'élément
-                <br/> ondblclick : pour un double clic sur l'élément
-                <br/>onmouseover : pour le passage de la souris sur un élément
-                <br/>onmouseout : pour la sortie de la souris d'un élément
+            <p><span>onclick :</span> pour un clic sur l'élément
+                <br/><span>ondblclick :</span>  pour un double clic sur l'élément
+                <br/><span>onmouseover :</span> pour le passage de la souris sur un élément
+                <br/><span>onmouseout :</span> pour la sortie de la souris d'un élément
                 <br/>De nombreux autres événements existent...
             </p>
 
             <h2>Du coup, comment on s'occupe de ça ?</h2>
             <p>L'utilisation du <span>.addEventListener</span> nous permet de gérer les différents événements que l'on souhaite et déclencher des fonctions précises. On a la possibilité d'agir plusieurs fois si les événements se répètent.</p>
-            <p><br/>Avec tous ces éléments, on a la possibilité de gérer une animation rapide : une transition CSS qui sera executée avec un changement de classe lors de l'appel de la fonction avec JS (ici avec un double clic): </p>
+            <p><br/>Avec tous ces éléments, on a la possibilité de gérer une animation rapide :</p>
         </div>
 
         <div class="example">
@@ -200,26 +189,102 @@ function aQuerySelectionAll() {
         </div>
 
         <div class="code">
-            <pre>
-                <code class="language-javascript">
-                <script>
-                    document.querySelector(".box").addEventListener("dblclick", move);
+<pre><code class="language-javascript">
+<script>
+    document.querySelector(".box").addEventListener("dblclick", move);
 
-                    function move(){
-                        document.querySelector(".box").className="newbox";
-                    }
-                </script>
-            </code>
-            </pre>
+    function move(){
+        box = document.querySelector(".box")
+        box.classList.toggle("rectangle");
+    }
+</script>
+</code></pre>
         </div>
 
     </section>
 
+    <section id="transition">
+        <div class="explanations">
+            <h2>Il est joli l'exemple mais on peut expliquer ?</h2>
+            <p> Pour cette fois on joue avec les classes CSS qui donnent à notre box deux styles différents. Avec l'événement, on créé une fonction qui execute un changement de classe lors de l'appel de la fonction avec JS (ici avec un double clic).</p>
+            <p>On passe d'une classe à une autre à l'infini avec <span>toggle</span>. Même utilisation de <span>classList</span> qu'avec l'ajout ou la suppression, cette fois-ci on décide de basculer.</p>
+            <p>Petit plus ici, on rend le changement plus fluide avec des transitions CSS. Regarde à quoi ressemble le code :</p>
+        </div>
+        <div class="example">
+            <div class="box"></div>
+            <div class="rectangle"></div>
+            <p>(ici tu pourras pas cliquer parce que pour l'exemple d'avant on a utilisé un <span>querySelector</span>, as-tu bien retenu son cas d'utilisation ?)</p>
+        </div>
 
+        <div class="code">
+<pre><code class="language-css">
+    .box {
+        width: 100px;
+        height: 100px;
+        background-color: blueviolet;
+        transition: width 2s, height 2s, background-color 2s, transform 2s;
+        margin: auto;
+    
+    }
+    
+    .rectangle {
+        background-color: pink;
+        width: 15px;
+        height: 150px;
+        transform: rotate(90deg);
+        transition: width 2s, height 2s, background-color 2s, transform 2s;
+        margin: auto;
+    }    
+</code></pre>
+        </div>
+    </section>
+
+    <section id="function">
+        <div class="explanations">
+            <h2>Ok j'ai tout compris mais les fonctions trop compliquées ça fonctionne comment ?</h2>
+            <p>Avec tous les éléments que l'on a vu, on peut comprendre le principe de certaines fonctions. On reprend l'exemple du changement de couleur de fond vu dans la première demonstration.</p>
+<pre><code class="language-javascript">
+var x, i;
+x = document.querySelectorAll(".class-pink");
+for (i = 0; i &lt; x.length; i++) {
+x[i].style.backgroundColor = "pink";
+}</code></pre>
+        <p><span>On connait déjà le contenu des actions que l'on fait, maintenant il faut traduire chaque ligne.</span></p>
+        <br/><p>On déclare des variables <span>var</span> pour y stocker des éléments, ici x et i.<br/>On attribue alors à x les éléments que l'on souhaite avec notre <span>querySelectorAll</span>.</p>
+        <p><br/>La partie qui semble compliquée, mais qui ne l'est pas lorsque l'on comprend toutes les conditions : on fait une boucle <span>for</span> avec la variable i que l'on peut considérer comme un compteur, qui commence à 0 jusqu'à la longueur <span>"length"</span> de notre x (pour rappel, qui contient nos éléments). Ce i s'incrémente avec le <span>++. Cette ligne d'aparence compliquée nous permet de créer la boucle afin d'effectuer la même action plusieurs fois pour tous les éléments que l'on souhaite.</span></p>
+        <br/><p>Donc, pour tous les éléments que l'on a en x avec en propriété i, on effectue le changement de couleur</p>
+        
+        <br/><p>Moins facile que lorsque l'on a un seul élément, on automatise avec des fonctions. Pour notre compréhension, on peut changer ces lettres x et i par des mots concrets :</p>
+        </div>
+
+
+        <div class="code">
+<pre><code class="language-javascript">
+<script>
+
+    function changeColor(){
+        var elements, counter;
+        elements = document.querySelectorAll(".newColor");
+        for (counter = 0; counter < elements.length; counter++) {
+        elements[counter].style.backgroundColor = "cornflowerblue";
+    }
+}
+</script>
+</code></pre>
+        </div>
+
+        <div class="example">
+            <p class="newColor" onclick="changeColor()">Tu l'as déjà vu mais cette fois si tu comprends qu'au clic de cet élément</p>
+            <br/><p class="newColor">Puisque la fonction va récupérer tous les éléments de cette classe et y appliquer le changement de style,</p>
+            <br/><p class="newColor">on sera tous coloré, j'espère que tout a été clair !</p>
+        </div>
+    </section>
+
+    <footer>
+        Joanne MASSILLON | A2 DW
+    </footer>
     
 </body>
 
-<footer>
-    Joanne MASSILLON | A2 DW
-</footer>
+
 </html>
